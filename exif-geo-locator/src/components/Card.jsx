@@ -1,18 +1,15 @@
 import '../scss/Card.scss'
 
-import { Map, GoogleApiWrapper } from "google-maps-react";
-const mapStyles = {
-  width: "100%",
-  height: "100%",
-};
 
-export default function Card () {
-    return (
-        <Map
-          google={this.props.google}
-          zoom={8}
-          style={mapStyles}
-          initialCenter={{ lat: 47.444, lng: -122.176}}
-        />
-    );
-  }
+const Card = () => (
+  <div>
+    <pre>
+      <iframe
+        title="map"
+        src="https://maps.google.com/maps?q=53.3381768,-6.2613077&z=15&output=embed"
+      ></iframe>
+    </pre>
+  </div>
+);
+
+export default Card

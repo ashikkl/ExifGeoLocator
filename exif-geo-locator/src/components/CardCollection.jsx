@@ -3,7 +3,7 @@ import Card from "./Card";
 
 function CardCollection() {
   return (
-    <div>
+    <div className="cards">
       <Card />
     </div>
   );

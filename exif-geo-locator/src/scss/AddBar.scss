@@ -1,0 +1,19 @@
+html {
+  .hidden {
+    visibility: hidden;
+  }
+  .visible {
+    visibility: visible;
+  }
+}
+
+#uploadBar {
+    background-color: #1E5128;
+    position: absolute;
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    margin-top: 80vh;
+    padding: 5% 0;
+
+}

@@ -1,13 +1,17 @@
 import "../scss/Add.scss";
 import { FaPlus } from "react-icons/fa";
 
+function toggleBar (){
+    let elem= document.getElementById('uploadBar');
+    elem.classList.add('visible')
+    console.log('5');
+}
+
 function Add() {
   return (
-
-      <button className="addButton">
-        <FaPlus />
-      </button>
-    
+    <button id="toggleButton " className="addButton" onClick={toggleBar}>
+      <FaPlus />
+    </button>
   );
 }
 

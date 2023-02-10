@@ -3,6 +3,7 @@ import Footer from './components/Footer';
 import ScrollButton from './components/ScrollButton';
 import Add from './components/Add';
 import CardCollection from "./components/CardCollection";
+import AddBar from './components/AddBar';
 import './App.css';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div className="App-header">
       <Header />
       <CardCollection />
+      <AddBar />
       <ScrollButton />
       <Add />
       <Footer />

@@ -1,0 +1,21 @@
+
+.addButton{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:90vh;
+    background-color: #4E9F3D;
+    border-radius: 50%;
+    border-color: #4d9f3d00;
+    height: 2rem;
+    width: 2rem;
+    scale: 5vw;
+}
+.addButton:hover{
+    background-color: #38742c;
+}
+.addButton:active{
+    background-color:#1E5128 ;
+    rotate: 60;
+}

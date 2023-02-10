@@ -1,7 +1,9 @@
 
-
-.App-header {
+body{
+  margin: 0 3%;
   background-color: #191A19;
+}
+.App-header {
   min-height: 100vh;
   display: flex;
   flex-direction: column;

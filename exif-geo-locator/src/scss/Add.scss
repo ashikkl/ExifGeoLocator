@@ -16,7 +16,12 @@
 .addButton:hover{
     background-color: #38742c;
 }
-.addButton::after{
-    background-color:#1E5128 ;
-    rotate: 60;
+.active{
+    background-color:#3da752a9 ;
+    rotate: 45deg;
+}
+
+.inactive{
+    motion-rotation: 0deg;
+    background-color: #4E9F3D;
 }

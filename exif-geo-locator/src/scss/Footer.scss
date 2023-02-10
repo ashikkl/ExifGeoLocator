@@ -1,0 +1,13 @@
+.Footer{
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size:small;
+    .text{
+        display:flex ;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+}

@@ -1,0 +1,16 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    justify-content: center;
+    background-color: #1E5128;
+    padding-bottom: 1vh;
+    padding-top: 1vh;
+    @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+    font-family: 'Raleway', sans-serif;
+    .head:hover {
+        color:#191A19;
+        
+        
+    }
+}

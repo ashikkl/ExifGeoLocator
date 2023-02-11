@@ -1,19 +1,35 @@
 import "../scss/AddBar.scss";
-import React from "react";
 import EXIF from "exif-js";
+import React from "react";
 
 function AddBar() {
   function handleChange({
     target: {
-      files: [file]
-    }
+      files: [file],
+    },
   }) {
     if (file && file.name) {
-      EXIF.getData(file, function() {
+      EXIF.getData(file, function () {
         var exifData = EXIF.pretty(this);
         if (exifData) {
-          console.log(exifData);
-          console.log(EXIF.getTag(this, "Orientation"));
+          let lat = EXIF.getTag(this, "GPSLatitude");
+          let latref = EXIF.getTag(this, "GPSLatitudeRef");
+
+          let lon = EXIF.getTag(this, "GPSLongitude");
+          let lonref = EXIF.getTag(this, "GPSLongitudeRef");
+
+          let latitude = "";
+          let longitude = "";
+
+          latitude = lat[0] + "°" + lat[1] + "'" + lat[2] + '"' + latref;
+          longitude = lon[0] + "°" + lon[1] + "'" + lon[2] + '"' + lonref;
+          let url =
+            "https://maps.google.com/maps?q=" +
+            { latitude } +
+            "," +
+            { longitude } +
+            "&z=15&output=embed";
+          return;
         } else {
           console.log("No EXIF data found in image '" + file.name + "'.");
         }
@@ -22,7 +38,7 @@ function AddBar() {
   }
 
   return (
-    <div id='uploadBar' className="hidden">
+    <div id="uploadBar" className="hidden">
       <input
         type="file"
         id="file"
@@ -33,8 +49,4 @@ function AddBar() {
   );
 }
 
-
 export default AddBar;
-
-
-

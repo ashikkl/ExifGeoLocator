@@ -5,6 +5,7 @@ import Add from './components/Add';
 import CardCollection from "./components/CardCollection";
 import AddBar from './components/AddBar';
 import './App.css';
+import React from 'react';
 
 function App() {
   return (

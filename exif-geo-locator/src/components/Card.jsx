@@ -1,12 +1,13 @@
+import React from 'react';
 import '../scss/Card.scss'
 
 
-const Card = () => (
+const Card = (props) => (
   <div>
     <pre>
       <iframe
         title="map"
-        src="https://maps.google.com/maps?q=53.3381768,-6.2613077&z=15&output=embed"
+        src={props.url}
       ></iframe>
     </pre>
   </div>

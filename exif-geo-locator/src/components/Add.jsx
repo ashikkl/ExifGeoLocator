@@ -1,5 +1,6 @@
 import "../scss/Add.scss";
 import { FaPlus } from "react-icons/fa";
+import React from "react";
 
 function toggleBar() {
   let elem = document.getElementById("uploadBar");

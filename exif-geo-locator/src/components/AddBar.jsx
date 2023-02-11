@@ -21,14 +21,8 @@ function AddBar() {
           let latitude = "";
           let longitude = "";
 
-          latitude = lat[0] + "°" + lat[1] + "'" + lat[2] + '"' + latref;
-          longitude = lon[0] + "°" + lon[1] + "'" + lon[2] + '"' + lonref;
-          let url =
-            "https://maps.google.com/maps?q=" +
-            { latitude } +
-            "," +
-            { longitude } +
-            "&z=15&output=embed";
+          latitude = lat[0] + " " + lat[1] + " " + lat[2] + ' ' + latref;
+          longitude = lon[0] + " " + lon[1] + " " + lon[2] + ' ' + lonref;
           return;
         } else {
           console.log("No EXIF data found in image '" + file.name + "'.");

@@ -1,6 +1,7 @@
 import "../scss/CardCollection.scss";
 import Card from "./Card";
 import React from "react";
+import data from './location/data.json'
 
 function ParseDMS(input) {
   var parts = input.split(" ");
@@ -23,10 +24,7 @@ function ConvertDMSToDD(degrees, minutes, seconds, direction) {
   return dd;
 }
 
-let lat = "10 4 5 S ";
-let long = "4 5 2 E";
-
-let pos = ParseDMS(lat + long).Position;
+let pos = ParseDMS(data.lat + " " + data.long).Position;
 
 function CardCollection() {
   return (

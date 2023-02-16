@@ -1,6 +1,7 @@
 import "../scss/AddBar.scss";
 import EXIF from "exif-js";
 import React from "react";
+import { ChangeDat } from "./CardCollection";
 
 function AddBar() {
   function handleChange({
@@ -21,11 +22,19 @@ function AddBar() {
           let latitude = "";
           let longitude = "";
 
-          latitude = lat[0] + " " + lat[1] + " " + lat[2] + ' ' + latref;
-          longitude = lon[0] + " " + lon[1] + " " + lon[2] + ' ' + lonref;
+          latitude = lat[0] + " " + lat[1] + " " + lat[2] + " " + latref;
+          longitude = lon[0] + " " + lon[1] + " " + lon[2] + " " + lonref;
+
+          var myDat = localStorage["data"];
+          var stored = localStorage["data"];
+          if (stored) myDat = JSON.parse(stored);
+          else myDat = [{ lat: "", long: "" }];
+          let data = [...myDat,{ lat: latitude, long: longitude }];
+
+          localStorage.setItem("data", JSON.stringify(data));
           return;
         } else {
-          console.log("No EXIF data found in image '" + file.name + "'.");
+          alert("No EXIF data found in image '" + file.name + "'.");
         }
       });
     }
@@ -37,7 +46,14 @@ function AddBar() {
         type="file"
         id="file"
         accept=".jpg, .png, .heif, .heic"
-        onChange={handleChange}
+        onChange={(file) => {
+          handleChange({
+            target: {
+              files: [file.target.files[0]],
+            },
+          });
+          ChangeDat();
+        }}
       />
     </div>
   );

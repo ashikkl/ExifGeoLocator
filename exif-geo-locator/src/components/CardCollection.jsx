@@ -1,7 +1,6 @@
 import "../scss/CardCollection.scss";
 import Card from "./Card";
 import React from "react";
-import data from './location/data.json'
 
 function ParseDMS(input) {
   var parts = input.split(" ");
@@ -23,8 +22,15 @@ function ConvertDMSToDD(degrees, minutes, seconds, direction) {
   } // Don't do anything for N or E
   return dd;
 }
+var myDat = localStorage["data"];
+var stored = localStorage["data"];
+if (stored) myDat = JSON.parse(stored);
+else myDat = [{ lat:'',long:'' }];
+let pos = ParseDMS(myDat[0].lat + " " + myDat[0].long).Position;
 
-let pos = ParseDMS(data.lat + " " + data.long).Position;
+export function ChangeDat(){
+window.location.reload(false);
+};
 
 function CardCollection() {
   return (

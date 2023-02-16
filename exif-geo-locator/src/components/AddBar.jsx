@@ -27,7 +27,7 @@ function AddBar() {
 
           var myDat = localStorage["data"];
           var stored = localStorage["data"];
-          if (stored) myDat = JSON.parse(stored);
+          if (stored) myDat = JSON.parse(stored); // eslint-disable-next-line
           else myDat = [{ lat: "", long: "" }];
           let data = [{ lat: latitude, long: longitude }];
 

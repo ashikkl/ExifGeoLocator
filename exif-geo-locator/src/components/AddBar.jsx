@@ -29,7 +29,7 @@ function AddBar() {
           var stored = localStorage["data"];
           if (stored) myDat = JSON.parse(stored);
           else myDat = [{ lat: "", long: "" }];
-          let data = [...myDat,{ lat: latitude, long: longitude }];
+          let data = [{ lat: latitude, long: longitude }];
 
           localStorage.setItem("data", JSON.stringify(data));
           return;

@@ -13,9 +13,8 @@ html {
     display: grid;
     justify-items: center;
     width: 100%;
-    margin-top: 80vh;
     bottom: 0px;
-    padding: 5% 0 ;
+    padding: calc(5% + 5vh) 0 ;
 
     input{
         font-family:Helvetica, Arial, sans-serif

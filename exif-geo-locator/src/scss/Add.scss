@@ -13,6 +13,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 999;
 }
 .addButton:hover{
     background-color: #38742c;

@@ -34,6 +34,8 @@ function createCard(entry) {
     <Card
       url={"https://maps.google.com/maps?q=" + pos + "&z=15&output=embed"}
       id={entry[0].id}
+      file={entry[0].file}
+      fileName={entry[0].fileName}
     />
   );
 }

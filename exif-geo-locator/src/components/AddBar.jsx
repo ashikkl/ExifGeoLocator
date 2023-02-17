@@ -28,10 +28,21 @@ function AddBar() {
           var stored = localStorage["data"];
           if (stored) myDat = JSON.parse(stored);
           else myDat = [];
+          const reader = new FileReader();
 
-          let data = [{ id: myDat.length + 1, lat: latitude, long: longitude }];
-          localStorage.setItem("data", JSON.stringify([...myDat, data]));
-
+          reader.readAsDataURL(file);
+          reader.addEventListener("load", () => {
+            const data = [
+              {
+                id: myDat.length + 1,
+                lat: latitude,
+                long: longitude,
+                file: reader.result,
+                fileName: file.name,
+              },
+            ];
+            localStorage.setItem("data", JSON.stringify([...myDat, data]));
+          });
           return;
         } else {
           alert("No EXIF data found in image '" + file.name + "'.");

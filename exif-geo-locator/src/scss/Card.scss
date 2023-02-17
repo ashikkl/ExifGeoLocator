@@ -1,15 +1,28 @@
 .card {
-  margin: 0 5%;
   iframe {
     display: block;
-    width: 100%;
-    max-width: 80vw;
-    height: 25em;
+    width: 90vw;
+    height: 50vh;
+    border-style: hidden;
   }
 
-  pre {
-    text-align: center;
-    max-width: 80vw;
-    margin: 0 auto;
+  .image {
+    width: 5rem;
+    border-radius: 50%;
+    height: 5rem;
+    object-fit: cover;
+    z-index: 3;
+    position: relative;
+    top: -50vh;
+    left: 80svw;
+  }
+}
+
+@media only screen and (max-width: 1100px){
+  .card {
+    .image {
+      left: 75%;
+      scale: 80%;
+    }
   }
 }

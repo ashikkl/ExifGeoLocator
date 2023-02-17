@@ -1,4 +1,16 @@
-.cards{
-    margin: 2% 5%;
-    min-height: 100vh;
+.cards {
+  margin: 2% 5%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  #instruction {
+    opacity: 50%;
+  }
+
+  .hide{
+    display: none;
+  }
 }

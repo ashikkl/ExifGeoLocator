@@ -37,9 +37,17 @@ function createCard(entry){
   );
 }
 
+
+   let instr = document.getElementById("instruction");
+   if (myDat !== []) {
+     instr.classList.add("hide");
+   } 
+
+
 function CardCollection() {
   return (
     <div className="cards">
+    <h1 id="instruction" className="">Upload files</h1>
       {myDat.map(
         createCard
       )}

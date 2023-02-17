@@ -59,5 +59,13 @@ function AddBar() {
 }
  export function ChangeDat() {
    window.location.reload(false);
+   var myDat = localStorage["data"];
+   var stored = localStorage["data"];
+   if (stored) myDat = JSON.parse(stored);
+   else myDat = [];
+   let instr = document.getElementById("instruction");
+   if (myDat !== []) {
+     instr.classList.add("hide");
+   } 
  }
 export default AddBar;

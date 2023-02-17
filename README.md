@@ -4,7 +4,7 @@ ExifGeoLocator is a web application built using the React framework that display
 
 ## Features
 - Display the geolocation of images on a map
-- Upload multiple images at once
+- Upload multiple images 
 - View the location of each image on the map individually
 - Zoom in and out on the map to view the location in more detail
 - Easily navigate between images and their locations on the map
@@ -24,7 +24,7 @@ To get started with ExifGeoLocator, simply upload an image or multiple images th
 4. Start the development server: `npm start` or `yarn start`
 
 ## Technologies Used
-ExifGeoLocator is built using React, HTML, CSS, JavaScript, and the Google Maps API.
+ExifGeoLocator is built using React, HTML, CSS, JavaScript, and the Google Maps.
 
 ## Contributions
 We welcome contributions to ExifGeoLocator. If you have an idea for a new feature or have found a bug, please open an issue or submit a pull request.

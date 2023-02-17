@@ -9,12 +9,13 @@ html {
 
 #uploadBar {
     background-color: #1E5128;
-    position: absolute;
+    position: fixed;
     display: grid;
     justify-items: center;
     width: 100%;
     margin-top: 80vh;
-    padding: 5% 0;
+    bottom: 0px;
+    padding: 5% 0 ;
 
     input{
         font-family:Helvetica, Arial, sans-serif

@@ -25,19 +25,24 @@ function ConvertDMSToDD(degrees, minutes, seconds, direction) {
 var myDat = localStorage["data"];
 var stored = localStorage["data"];
 if (stored) myDat = JSON.parse(stored);
-else myDat = [{ lat:'',long:'' }];
-let pos = ParseDMS(myDat[0].lat + " " + myDat[0].long).Position;
+else myDat = [];
 
-export function ChangeDat(){
-window.location.reload(false);
-};
+function createCard(entry){
+        let pos = ParseDMS(entry[0].lat + " " + entry[0].long).Position;
+        console.log(pos);
+  return (
+    <Card
+      url={"https://maps.google.com/maps?q=" + entry.pos + "&z=15&output=embed"}
+    />
+  );
+}
 
 function CardCollection() {
   return (
     <div className="cards">
-      <Card
-        url={"https://maps.google.com/maps?q=" + pos + "&z=15&output=embed"}
-      />
+      {myDat.map(
+        createCard
+      )}
     </div>
   );
 }

@@ -1,10 +1,8 @@
 
 .addButton{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top:85vh;
+    position: fixed;
+    left: 0px;
+    bottom: 5%;
     margin-left: 5%;
     background-color: #4E9F3D;
     border-radius: 50%;
@@ -12,6 +10,9 @@
     height: 2rem;
     width: 2rem;
     scale: 120%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .addButton:hover{
     background-color: #38742c;

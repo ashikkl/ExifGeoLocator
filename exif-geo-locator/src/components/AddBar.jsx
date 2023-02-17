@@ -26,12 +26,13 @@ function AddBar() {
 
           var myDat = localStorage["data"];
           var stored = localStorage["data"];
-          if (stored) myDat = JSON.parse(stored); 
+          if (stored) myDat = JSON.parse(stored);
           else myDat = [];
-          let data = [{ id:myDat.length +1,lat: latitude, long: longitude }];
-          localStorage.setItem("data", JSON.stringify([...myDat,data]));
 
-          return ;
+          let data = [{ id: myDat.length + 1, lat: latitude, long: longitude }];
+          localStorage.setItem("data", JSON.stringify([...myDat, data]));
+
+          return;
         } else {
           alert("No EXIF data found in image '" + file.name + "'.");
         }
@@ -57,15 +58,7 @@ function AddBar() {
     </div>
   );
 }
- export function ChangeDat() {
-   window.location.reload(false);
-   var myDat = localStorage["data"];
-   var stored = localStorage["data"];
-   if (stored) myDat = JSON.parse(stored);
-   else myDat = [];
-   let instr = document.getElementById("instruction");
-   if (myDat !== []) {
-     instr.classList.add("hide");
-   } 
- }
+export function ChangeDat() {
+  window.location.reload(false);
+}
 export default AddBar;

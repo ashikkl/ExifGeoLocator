@@ -1,17 +1,15 @@
 .card {
   margin: 0 5%;
   iframe {
-  display: block;
-  width: 90%;
-  max-width: 60rem;
-  height: 25em;
-}
+    display: block;
+    width: 100%;
+    max-width: 80vw;
+    height: 25em;
+  }
 
-pre {
-  text-align: center;
-  width: 90%;
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 2rem;
-}
+  pre {
+    text-align: center;
+    max-width: 80vw;
+    margin: 0 auto;
+  }
 }

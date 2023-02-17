@@ -18,6 +18,7 @@ function toggleBar() {
     document.getElementById("toggleButton").classList.add("inactive");
     document.getElementById("toggleButton").classList.remove("active");
   }
+
 }
 
 function Add() {

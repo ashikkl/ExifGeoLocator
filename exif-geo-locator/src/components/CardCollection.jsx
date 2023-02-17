@@ -27,30 +27,27 @@ var stored = localStorage["data"];
 if (stored) myDat = JSON.parse(stored);
 else myDat = [];
 
-function createCard(entry){
-        let pos = ParseDMS(entry[0].lat + " " + entry[0].long).Position;
-        console.log(pos);
+function createCard(entry) {
+
+  let pos = ParseDMS(entry[0].lat + " " + entry[0].long).Position;
   return (
     <Card
-      url={"https://maps.google.com/maps?q=" + entry.pos + "&z=15&output=embed"}
+      url={"https://maps.google.com/maps?q=" + pos + "&z=15&output=embed"}
+      id={entry[0].id}
     />
   );
 }
 
 
-   let instr = document.getElementById("instruction");
-   if (myDat !== []) {
-     instr.classList.add("hide");
-   } 
-
+  
 
 function CardCollection() {
   return (
     <div className="cards">
-    <h1 id="instruction" className="">Upload files</h1>
-      {myDat.map(
-        createCard
-      )}
+      <h1 id="instruction" className="">
+        Upload files
+      </h1>
+      {myDat.map(createCard)}
     </div>
   );
 }

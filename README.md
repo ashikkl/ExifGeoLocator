@@ -31,3 +31,14 @@ We welcome contributions to ExifGeoLocator. If you have an idea for a new featur
 
 ## License
 ExifGeoLocator is released under the Apache 2.0. See the LICENSE file for more information.
+
+
+## [![Repography logo](https://images.repography.com/logo.svg)](https://repography.com) / Recent activity [![Time period](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_badge.svg)](https://repography.com)
+[![Timeline graph](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_timeline.svg)](https://github.com/ashikkl/ExifGeoLocator/commits)
+[![Issue status graph](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_issues.svg)](https://github.com/ashikkl/ExifGeoLocator/issues)
+[![Pull request status graph](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_prs.svg)](https://github.com/ashikkl/ExifGeoLocator/pulls)
+[![Trending topics](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_words.svg)](https://github.com/ashikkl/ExifGeoLocator/commits)
+[![Top contributors](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_users.svg)](https://github.com/ashikkl/ExifGeoLocator/graphs/contributors)
+[![Activity map](https://images.repography.com/34383285/ashikkl/ExifGeoLocator/recent-activity/I5-jkNqJB6o7r6nRBj18d5soQ1lLIe-sDTZPRTpD-0o/eFcIBl5IxuKEUf_hirOqH1Xk21qRWJHeRcYrIBxnP40_map.svg)](https://github.com/ashikkl/ExifGeoLocator/commits)
+
+

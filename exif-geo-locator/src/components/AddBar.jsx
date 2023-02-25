@@ -56,6 +56,8 @@ function AddBar() {
       <input
         type="file"
         id="file"
+        className="custom-file-input"
+        aria-label="File browser"
         accept=".jpg, .png, .heif, .heic"
         onChange={(file) => {
           handleChange({
@@ -66,6 +68,9 @@ function AddBar() {
           ChangeDat();
         }}
       />
+      <label for="file">
+        Select file
+      </label>
     </div>
   );
 }

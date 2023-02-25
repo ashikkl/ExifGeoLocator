@@ -1,13 +1,21 @@
-
-body{
-  background-color: #191A19;
+:root {
+  scroll-behavior: smooth;
+  overflow: auto;
+  overflow-x: hidden;
+  -ms-content-zooming: none;
+  touch-action: none;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
+}
+body {
+  background-color: #191a19;
 }
 .App-header {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   font-size: calc(10px + 2vmin);
-  color: #D8E9A8;
+  color: #d8e9a8;
 }
 
 .prevent-select {

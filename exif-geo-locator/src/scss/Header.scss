@@ -14,26 +14,35 @@
   .head:hover {
     color: #191a19;
   }
-.head{
+  .head {
     display: flex;
     align-items: center;
     gap: 1vw;
-}
-  #logo{
+  }
+  #logo {
     width: 4vw;
     max-width: 64px;
-    min-width:32px;
+    min-width: 32px;
     height: auto;
   }
 
   .clr {
     position: absolute;
     display: flex;
+    align-items: center;
+    justify-content: center;
     right: 5%;
-    background: #1e5128;
     border-radius: 10px;
+    background: transparent;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
     color: #d8e9a8;
-    border-color: #d8e9a8;
-    border-style:double;
+    border-style: none;
+    height: max-content;
+    scale: 110%;
+  }
+
+  .clr:hover,
+  .clr:focus {
+    transform: scale(1.02);
   }
 }

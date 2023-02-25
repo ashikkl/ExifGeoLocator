@@ -8,15 +8,49 @@ html {
 }
 
 #uploadBar {
-    background-color: #1E5128;
-    position: fixed;
-    display: grid;
-    justify-items: center;
-    width: 100%;
-    bottom: 0px;
-    padding: calc(5% + 5vh) 0 ;
+  background-color: #1e5128;
+  position: fixed;
+  display: grid;
+  justify-items: center;
+  width: 100%;
+  bottom: 0px;
+  padding: calc(5% + 5vh) 0;
 
-    input{
-        font-family:Helvetica, Arial, sans-serif
-    }
+  input {
+    font-family: Helvetica, Arial, sans-serif;
+  }
+
+
+  #file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.custom-file-input ,label {
+  position: relative;
+  width: 200px;
+  height: 50px;
+  border-radius: 25px;
+  background: transparent;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s ease-out;
+}
+
+.custom-file-input:hover + label,
+.custom-file-input:focus + label {
+  transform: scale(1.02);
+}
+
+/* Adding an outline to the label on focus */
+.custom-file-input:focus + label {
+  outline: 1px solid #000;
+  outline: -webkit-focus-ring-color auto 2px;
+}
 }

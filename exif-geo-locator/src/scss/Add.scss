@@ -1,29 +1,47 @@
+.addButton {
+  position: fixed;
+  left: 0px;
+  bottom: 13vh;
+  margin-left: 5%;
+  background-color: #4e9f3d;
+  border-radius: 50%;
+  border-color: #4d9f3d00;
+  height: 2rem;
+  width: 2rem;
+  scale: 120%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.addButton:hover {
+  background-color: #38742c;
+}
+.active {
+  background-color: #3da752a9;
+  animation: rot45 100ms ease-in-out forwards ;
+}
 
-.addButton{
-    position: fixed;
-    left: 0px;
-    bottom: 13vh;
-    margin-left: 5%;
-    background-color: #4E9F3D;
-    border-radius: 50%;
-    border-color: #4d9f3d00;
-    height: 2rem;
-    width: 2rem;
-    scale: 120%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+.inactive {
+  background-color: #4e9f3d;
+  animation: rotinv45 100ms ease-in-out forwards;
 }
-.addButton:hover{
-    background-color: #38742c;
-}
-.active{
-    background-color:#3da752a9 ;
+
+@keyframes rot45 {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
     rotate: 45deg;
+  }
 }
 
-.inactive{
-    motion-rotation: 0deg;
-    background-color: #4E9F3D;
+@keyframes rotinv45 {
+  0% {
+    rotate: 45deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
 }
+

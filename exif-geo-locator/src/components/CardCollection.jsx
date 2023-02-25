@@ -28,7 +28,6 @@ if (stored) myDat = JSON.parse(stored);
 else myDat = [];
 
 function createCard(entry) {
-
   let pos = ParseDMS(entry[0].lat + " " + entry[0].long).Position;
   return (
     <Card
@@ -39,9 +38,6 @@ function createCard(entry) {
     />
   );
 }
-
-
-  
 
 function CardCollection() {
   return (

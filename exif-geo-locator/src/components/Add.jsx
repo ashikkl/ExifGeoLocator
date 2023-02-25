@@ -9,6 +9,7 @@ let toggle = () => {
 export function toggleBar() {
   toggle();
   let elem = document.getElementById("uploadBar");
+  elem.classList.remove("hid");
   if (elem.classList.contains("hidden")) {
     elem.classList.add("visible");
     elem.classList.remove("hidden");

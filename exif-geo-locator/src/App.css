@@ -9,6 +9,10 @@
 }
 body {
   background-color: #191a19;
+  background-image: url('../public/waves.png');
+  background-blend-mode:multiply;
+  background-clip: border-box;
+  object-fit: cover;
 }
 .App-header {
   min-height: 100vh;

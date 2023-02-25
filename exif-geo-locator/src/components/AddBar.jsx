@@ -52,7 +52,7 @@ function AddBar() {
   }
 
   return (
-    <div id="uploadBar" className="hidden">
+    <div id="uploadBar" className="hid hidden ">
       <input
         type="file"
         id="file"

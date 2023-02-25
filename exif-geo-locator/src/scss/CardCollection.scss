@@ -10,7 +10,15 @@
 
   #instruction {
     opacity: 50%;
+  }
+}
+
+html {
+  .hide {
     display: none;
   }
 
+  .unhide {
+    display: none;
+  }
 }

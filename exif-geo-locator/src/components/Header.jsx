@@ -11,7 +11,7 @@ function Header() {
     <div className="header">
       <div className="head prevent-select">
         <img src={process.env.PUBLIC_URL + "/logo192.png"}  alt='logo' fluid id='logo'/>{" "}
-        ExifGeoLocator
+        Exif Geo Locator
       </div>
       <button className="clr" onClick={clrAll}>
         Clear All

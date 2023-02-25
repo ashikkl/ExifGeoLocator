@@ -1,11 +1,6 @@
 :root {
   scroll-behavior: smooth;
-  overflow: auto;
   overflow-x: hidden;
-  -ms-content-zooming: none;
-  touch-action: none;
-  -ms-overflow-style: none;
-  overflow: -moz-scrollbars-none;
 }
 body {
   background-color: #191a19;

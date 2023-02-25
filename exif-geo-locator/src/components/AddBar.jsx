@@ -8,7 +8,7 @@ function AddBar() {
       files: [file],
     },
   }) {
-    if (file && file.name) {
+    if (file) {
       EXIF.getData(file, function () {
         var exifData = EXIF.pretty(this);
         if (exifData) {
@@ -67,7 +67,7 @@ function AddBar() {
           ChangeDat();
         }}
       />
-      <label for="file">
+      <label htmlFor="file">
         Select file
       </label>
     </div>

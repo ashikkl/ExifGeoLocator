@@ -39,23 +39,14 @@ function createCard(entry) {
   );
 }
 
+let isVisible = false;
+if (!localStorage["data"]) {
+  isVisible = true;
+}
+
 function CardCollection() {
-  const [isVisible, setIsVisible] = React.useState(true);
-
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
-
   return (
-    <div
-      className="cards"
-      id="cards"
-      onLoad={() => {
-        if (!localStorage["data"]) {
-          toggleVisibility();
-        }
-      }}
-    >
+    <div className="cards" id="cards">
       {isVisible && (
         <h1 id="instruction" className="">
           Upload files

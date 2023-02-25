@@ -2,12 +2,6 @@ import "../scss/CardCollection.scss";
 import Card from "./Card";
 import React from "react";
 
-const dataChk = () => {
-  if (!localStorage["data"]) { alert("Upload A File")}
-  };
-
-dataChk();
-
 function ParseDMS(input) {
   var parts = input.split(" ");
   var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
@@ -46,11 +40,27 @@ function createCard(entry) {
 }
 
 function CardCollection() {
+  const [isVisible, setIsVisible] = React.useState(true);
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   return (
-    <div className="cards" id="cards">
-      <h1 id="instruction" className="hide">
-        Upload files
-      </h1>
+    <div
+      className="cards"
+      id="cards"
+      onLoad={() => {
+        if (!localStorage["data"]) {
+          toggleVisibility();
+        }
+      }}
+    >
+      {isVisible && (
+        <h1 id="instruction" className="">
+          Upload files
+        </h1>
+      )}
       {myDat.map(createCard)}
     </div>
   );

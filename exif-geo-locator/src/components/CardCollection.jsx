@@ -45,7 +45,7 @@ function createCard(entry) {
 
 function CardCollection() {
   return (
-    <div className="cards">
+    <div className="cards" id="cards">
       <h1 id="instruction" className="">
         Upload files
       </h1>

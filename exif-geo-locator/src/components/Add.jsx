@@ -2,17 +2,6 @@ import "../scss/Add.scss";
 import { FaPlus } from "react-icons/fa";
 import React from "react";
 
-const dataChk = () => {
-  if (localStorage["data"]) {
-    document.getElementById("instruction").classList.add("hidden");
-    document.getElementById("instruction").classList.remove("visible");
-  } else {
-    document.getElementById("instruction").classList.add("visible");
-    document.getElementById("instruction").classList.remove("hidden");
-  }
-};
-dataChk();
-
 let toggle = () => {
   document.getElementById("cards").addEventListener("click", toggleBar);
 };

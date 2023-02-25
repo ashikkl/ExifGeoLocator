@@ -14,7 +14,7 @@ function AddBar() {
         if (exifData) {
           let lat = EXIF.getTag(this, "GPSLatitude");
           let latref = EXIF.getTag(this, "GPSLatitudeRef");
-
+alert(lat);
           let lon = EXIF.getTag(this, "GPSLongitude");
           let lonref = EXIF.getTag(this, "GPSLongitudeRef");
 

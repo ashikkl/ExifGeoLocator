@@ -8,7 +8,7 @@ function AddBar() {
       files: [file],
     },
   }) {
-    if (file) {
+    if (file && file.name) {
       EXIF.getData(file, function () {
         var exifData = EXIF.pretty(this);
         if (exifData) {
@@ -40,7 +40,11 @@ function AddBar() {
                 fileName: file.name,
               },
             ];
-            localStorage.setItem("data", JSON.stringify([...myDat, data]));
+            try {
+              localStorage.setItem("data", JSON.stringify([...myDat, data]));
+            } catch (error) {
+              alert("Local Storage Full " + error);
+            }
           });
           return;
         } else {
@@ -67,9 +71,7 @@ function AddBar() {
           ChangeDat();
         }}
       />
-      <label htmlFor="file">
-        Select file
-      </label>
+      <label htmlFor="file">Select file</label>
     </div>
   );
 }

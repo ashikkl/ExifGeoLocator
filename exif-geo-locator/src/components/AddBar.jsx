@@ -8,6 +8,17 @@ function AddBar() {
       files: [file],
     },
   }) {
+    async function compressImage(blobImg, percent) {
+      let bitmap = await createImageBitmap(blobImg);
+      let canvas = document.createElement("canvas");
+      let ctx = canvas.getContext("2d");
+      canvas.width = bitmap.width;
+      canvas.height = bitmap.height;
+      ctx.drawImage(bitmap, 0, 0);
+      let dataUrl = canvas.toDataURL("image/jpeg", percent / 100);
+      return dataUrl;
+    }
+
     if (file && file.name) {
       EXIF.getData(file, function () {
         var exifData = EXIF.pretty(this);
@@ -31,20 +42,26 @@ function AddBar() {
 
           reader.readAsDataURL(file);
           reader.addEventListener("load", () => {
-            const data = [
-              {
-                id: myDat.length + 1,
-                lat: latitude,
-                long: longitude,
-                file: reader.result,
-                fileName: file.name,
-              },
-            ];
-            try {
-              localStorage.setItem("data", JSON.stringify([...myDat, data]));
-            } catch (error) {
-              alert("Local Storage Full " + error);
-            }
+            const cImg = async () => {
+              const a = await compressImage(file, 75);
+
+              const data = [
+                {
+                  id: myDat.length + 1,
+                  lat: latitude,
+                  long: longitude,
+                  file: a,
+                  fileName: file.name,
+                },
+              ];
+              try {
+                localStorage.setItem("data", JSON.stringify([...myDat, data]));
+              } catch (error) {
+                alert("Local Storage Full " + error);
+              }
+            };
+            cImg();
+            window.location.reload(false);
           });
           return;
         } else {
@@ -68,14 +85,11 @@ function AddBar() {
               files: [file.target.files[0]],
             },
           });
-          ChangeDat();
         }}
       />
       <label htmlFor="file">Select file</label>
     </div>
   );
 }
-export function ChangeDat() {
-  window.location.reload(false);
-}
+
 export default AddBar;

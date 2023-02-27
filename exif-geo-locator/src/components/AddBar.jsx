@@ -61,7 +61,7 @@ function AddBar() {
         id="file"
         className="custom-file-input"
         aria-label="File browser"
-        accept=".jpg, .png, .heif, .heic"
+        accept="image/*"
         onChange={(file) => {
           handleChange({
             target: {

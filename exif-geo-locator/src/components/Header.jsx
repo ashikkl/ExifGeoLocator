@@ -10,8 +10,13 @@ function Header() {
   return (
     <div className="header">
       <div className="head prevent-select">
-        <img src={process.env.PUBLIC_URL + "/logo192.png"}  alt='logo' fluid='true' id='logo'/>{" "}
-        Exif Geo Locator
+        <img
+          src={process.env.PUBLIC_URL + "/logo192.png"}
+          alt="logo"
+          fluid="true"
+          id="logo"
+        />{" "}
+        <strong>Exif Geo Locator</strong>
       </div>
       <button className="clr" onClick={clrAll}>
         Clear All

@@ -1,8 +1,9 @@
 import "../scss/AddBar.scss";
 import EXIF from "exif-js";
-import React from "react";
+import React, {useState} from "react";
 
 function AddBar() {
+  const {OnDrag, setOnDrag}= useState(false);
   function handleChange(files) {
     for (let i = 0; i < files.length; i++) {
       let file = files[i];
@@ -79,6 +80,7 @@ function AddBar() {
   const handleDrag = function (e) {
     e.preventDefault();
     e.stopPropagation();
+    setOnDrag(true);
   };
 
   // triggers when file is dropped
@@ -93,7 +95,7 @@ function AddBar() {
   return (
     <div
       id="uploadBar"
-      className="hid hidden "
+      className={OnDrag ? "highlight hid hidden " : " hid hidden "}
       onDragEnter={handleDrag}
       onDragLeave={handleDrag}
       onDragOver={handleDrag}

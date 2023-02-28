@@ -1,9 +1,9 @@
 html {
   .hidden {
-    animation: down 100ms forwards ease-in-out;
+    animation: down 70ms forwards ease-in-out;
   }
   .visible {
-    animation: up 100ms forwards ease-in-out;
+    animation: up 70ms forwards ease-in-out;
   }
 
   .hid {
@@ -11,7 +11,10 @@ html {
   }
 
   .highlight{
-    box-shadow: #4d9f3d71 15px 0px 0px 0px !important;
+    box-shadow:
+    0 0 60px 30px #1e5128,  /* inner white */
+    0 0 100px 60px rgb(15, 85, 30), /* middle magenta */
+    0 0 140px 90px rgb(26, 109, 37); /* outer cyan */
   }
 }
 
@@ -66,22 +69,22 @@ html {
 
 @keyframes up {
   0% {
-    bottom: -100vh;
-    opacity: 0;
+    transform:translate3d(0,100vh,0);
+    opacity: 0;   
   }
   100% {
-    bottom: 0vh;
+    transform:translate3d(0,0,0) ;
     opacity: 1;
   }
 }
 
 @keyframes down {
   0% {
-    bottom: 0vh;
+    transform:translate3d(0,0,0) ;
     opacity: 1;
   }
   100% {
-    bottom: -100vh;
+    transform:translate3d(0,100vh,0);
     opacity: 0;
   }
 }

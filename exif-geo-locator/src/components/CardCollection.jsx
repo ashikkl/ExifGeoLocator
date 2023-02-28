@@ -28,14 +28,14 @@ if (stored) myDat = JSON.parse(stored);
 else myDat = [];
 
 function createCard(entry) {
-  let pos = ParseDMS(entry[0].lat + " " + entry[0].long).Position;
+  let pos = ParseDMS(entry.lat + " " + entry.long).Position;
   return (
     <Card
       url={"https://maps.google.com/maps?q=" + pos + "&z=15&output=embed"}
-      key={entry[0].id}
-      id={entry[0].id}
-      file={entry[0].file}
-      fileName={entry[0].fileName}
+      key={entry.id}
+      id={entry.id}
+      file={entry.file}
+      fileName={entry.fileName}
     />
   );
 }

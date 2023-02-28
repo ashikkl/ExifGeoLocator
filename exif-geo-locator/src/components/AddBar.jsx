@@ -102,7 +102,7 @@ function AddBar() {
       onDrop={handleDrop}
     >
       <p>
-        <strong>Drag and drop a file or</strong>
+        <strong>Drag and drop or</strong>
       </p>
       <input
         type="file"

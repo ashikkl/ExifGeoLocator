@@ -20,11 +20,12 @@ const ScrollButton = () => {
     });
   };
   return (
-    <div className="top-to-btm">
-      {" "}
+    <div>
       {showTopBtn && (
-        <FaAngleUp className="icon-position icon-style" onClick={goToTop} />
-      )}{" "}
+        <div className="top-to-btm">
+          <FaAngleUp className="icon-style" onClick={goToTop} />
+        </div>
+      )}
     </div>
   );
 };

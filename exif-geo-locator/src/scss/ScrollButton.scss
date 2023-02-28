@@ -1,7 +1,14 @@
 .top-to-btm {
+  display: flex;
+  justify-content: center;
+  align-content: center;
   position: fixed;
   right: 5%;
   bottom: 13vh;
   z-index: 999;
   scale: 1.25;
+  background-color: #4e9f3d;
+  height: 2rem;
+  width: 2rem;
+  border-radius: 25px;
 }

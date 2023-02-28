@@ -75,8 +75,33 @@ function AddBar() {
     }
   }
 
+  // handle drag events
+  const handleDrag = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+  };
+
+  // triggers when file is dropped
+  const handleDrop = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleChange(e.dataTransfer.files);
+    }
+  };
+
   return (
-    <div id="uploadBar" className="hid hidden ">
+    <div
+      id="uploadBar"
+      className="hid hidden "
+      onDragEnter={handleDrag}
+      onDragLeave={handleDrag}
+      onDragOver={handleDrag}
+      onDrop={handleDrop}
+    >
+      <p>
+        <strong>Drag and drop a file or</strong>
+      </p>
       <input
         type="file"
         id="file"

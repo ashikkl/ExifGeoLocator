@@ -39,7 +39,7 @@ function createCard(entry) {
     />
   );
 }
-
+  
 let isVisible = false;
 if (!localStorage["data"]) {
   isVisible = true;

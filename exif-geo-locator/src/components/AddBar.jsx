@@ -3,76 +3,87 @@ import EXIF from "exif-js";
 import React from "react";
 
 function AddBar() {
+  const [loading, setIsLoading] = React.useState(false);
+  let reload = () => {
+    setIsLoading(false);
+    window.location.reload(false);
+  };
+
   function handleChange(files) {
-    for (let i = 0; i < files.length; i++) {
-      let file = files[i];
-      async function compressImage(blobImg, percent) {
-        let bitmap = await createImageBitmap(blobImg);
-        let canvas = document.createElement("canvas");
-        let ctx = canvas.getContext("2d");
-        canvas.width = bitmap.width;
-        canvas.height = bitmap.height;
-        ctx.drawImage(bitmap, 0, 0);
-        let dataUrl = canvas.toDataURL("image/jpeg", percent / 100);
-        return dataUrl;
-      }
+    setIsLoading(true);
+    const updater = (files) => {
+      for (let i = 0; i < files.length; i++) {
+        let file = files[i];
 
-      if (file && file.name) {
-        EXIF.getData(file, function () {
-          var exifData = EXIF.pretty(this);
-          if (exifData) {
-            if (EXIF.getTag(this, "GPSLatitude")) {
-              let lat = EXIF.getTag(this, "GPSLatitude");
-              let latref = EXIF.getTag(this, "GPSLatitudeRef");
-              let lon = EXIF.getTag(this, "GPSLongitude");
-              let lonref = EXIF.getTag(this, "GPSLongitudeRef");
+        async function compressImage(blobImg, percent) {
+          let bitmap = await createImageBitmap(blobImg);
+          let canvas = document.createElement("canvas");
+          let ctx = canvas.getContext("2d");
+          canvas.width = bitmap.width;
+          canvas.height = bitmap.height;
+          ctx.drawImage(bitmap, 0, 0);
+          let dataUrl = canvas.toDataURL("image/jpeg", percent / 100);
+          return dataUrl;
+        }
 
-              let latitude = "";
-              let longitude = "";
+        if (file && file.name) {
+          EXIF.getData(file, function () {
+            var exifData = EXIF.pretty(this);
+            if (exifData) {
+              if (EXIF.getTag(this, "GPSLatitude")) {
+                let lat = EXIF.getTag(this, "GPSLatitude");
+                let latref = EXIF.getTag(this, "GPSLatitudeRef");
+                let lon = EXIF.getTag(this, "GPSLongitude");
+                let lonref = EXIF.getTag(this, "GPSLongitudeRef");
 
-              latitude = `${lat[0]} ${lat[1]} ${lat[2]} ${latref}`;
-              longitude = `${lon[0]} ${lon[1]} ${lon[2]} ${lonref}`;
+                let latitude = "";
+                let longitude = "";
 
-              var myDat = localStorage["data"];
-              var stored = localStorage["data"];
-              if (stored) myDat = JSON.parse(stored);
-              else myDat = [];
-              const reader = new FileReader();
+                latitude = `${lat[0]} ${lat[1]} ${lat[2]} ${latref}`;
+                longitude = `${lon[0]} ${lon[1]} ${lon[2]} ${lonref}`;
 
-              reader.readAsDataURL(file);
-              reader.addEventListener("load", () => {
-                const cImg = async () => {
-                  const a = await compressImage(file, 75);
+                var myDat = localStorage["data"];
+                var stored = localStorage["data"];
+                if (stored) myDat = JSON.parse(stored);
+                else myDat = [];
+                const reader = new FileReader();
 
-                  const data = {
-                    id: myDat.length + 1,
-                    lat: latitude,
-                    long: longitude,
-                    file: a,
-                    fileName: file.name,
+                reader.readAsDataURL(file);
+                reader.addEventListener("load", () => {
+                  const cImg = async () => {
+                    const a = await compressImage(file, 75);
+
+                    const data = {
+                      id: myDat.length + 1,
+                      lat: latitude,
+                      long: longitude,
+                      file: a,
+                      fileName: file.name,
+                    };
+
+                    try {
+                      localStorage.setItem(
+                        "data",
+                        JSON.stringify([...myDat, data])
+                      );
+                    } catch (error) {
+                      alert("Local Storage Full " + error);
+                    }
                   };
-
-                  try {
-                    localStorage.setItem(
-                      "data",
-                      JSON.stringify([...myDat, data])
-                    );
-                  } catch (error) {
-                    alert("Local Storage Full " + error);
-                  }
-                };
-                cImg();
-                window.location.reload(false);
-              });
+                  cImg();
+                });
+              } else {
+                alert("No Location Data Found in '" + file.name + "'.");
+              }
             } else {
-              alert("No Location Data Found in '" + file.name + "'.");
+              alert("No EXIF data found in image '" + file.name + "'.");
             }
-          } else {
-            alert("No EXIF data found in image '" + file.name + "'.");
-          }
-        });
+          });
+        }
       }
-    }
+      reload();
+    };
+    updater(files);
   }
 
   // handle drag events
@@ -93,29 +104,36 @@ function AddBar() {
   };
 
   return (
-    <div
-      id="uploadBar"
-      className= " hid hidden "
-      onDragEnter={handleDrag}
-      onDragLeave={handleDrag}
-      onDragOver={handleDrag}
-      onDrop={handleDrop}
-    >
-      <p>
-        <strong>Drag and drop or</strong>
-      </p>
-      <input
-        type="file"
-        id="file"
-        className="custom-file-input"
-        aria-label="File browser"
-        accept="image/*"
-        multiple={true}
-        onChange={(file) => {
-          handleChange(file.target.files);
-        }}
-      />
-      <label htmlFor="file">Select file</label>
+    <div>
+      {loading && (
+        <div className="ring">
+          loading<span></span>
+        </div>
+      )}
+      <div
+        id="uploadBar"
+        className=" hid hidden "
+        onDragEnter={handleDrag}
+        onDragLeave={handleDrag}
+        onDragOver={handleDrag}
+        onDrop={handleDrop}
+      >
+        <p>
+          <strong>Drag and drop or</strong>
+        </p>
+        <input
+          type="file"
+          id="file"
+          className="custom-file-input"
+          aria-label="File browser"
+          accept="image/*"
+          multiple={true}
+          onChange={(file) => {
+            handleChange(file.target.files);
+          }}
+        />
+        <label htmlFor="file">Select file</label>
+      </div>
     </div>
   );
 }

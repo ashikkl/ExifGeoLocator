@@ -10,22 +10,23 @@ function AddBar() {
   };
 
   function handleChange(files) {
+
+    async function compressImage(blobImg, percent) {
+
+      let bitmap = await createImageBitmap(blobImg);
+      let canvas = document.createElement("canvas");
+      let ctx = canvas.getContext("2d");
+      canvas.width = bitmap.width;
+      canvas.height = bitmap.height;
+      ctx.drawImage(bitmap, 0, 0);
+      let dataUrl = canvas.toDataURL("image/jpeg", percent / 100);
+      return dataUrl;
+    }
+
     setIsLoading(true);
-    const updater = (files) => {
       for (let i = 0; i < files.length; i++) {
         let file = files[i];
-
-        async function compressImage(blobImg, percent) {
-          let bitmap = await createImageBitmap(blobImg);
-          let canvas = document.createElement("canvas");
-          let ctx = canvas.getContext("2d");
-          canvas.width = bitmap.width;
-          canvas.height = bitmap.height;
-          ctx.drawImage(bitmap, 0, 0);
-          let dataUrl = canvas.toDataURL("image/jpeg", percent / 100);
-          return dataUrl;
-        }
-
+        
         if (file && file.name) {
           EXIF.getData(file, function () {
             var exifData = EXIF.pretty(this);
@@ -81,9 +82,6 @@ function AddBar() {
           });
         }
       }
-      reload();
-    };
-    updater(files);
   }
 
   // handle drag events

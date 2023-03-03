@@ -17,8 +17,18 @@ function AddBar() {
       return dataUrl;
     }
 
-    localStorage.setItem("count", 1);
-    setIsLoading(true);
+    async function setCount(c) {
+      localStorage.setItem("count", Number(c) + 1);
+      if (files.length < localStorage["count"]) {
+        setIsLoading(false);
+        window.location.reload(false);
+      }
+    }
+    const loader = async () => {
+      localStorage.setItem("count", 1);
+      setIsLoading(true);
+    };
+    loader();
     for (let i = 0; i < files.length; i++) {
       let file = files[i];
 
@@ -42,7 +52,6 @@ function AddBar() {
               var stored = localStorage["data"];
               if (stored) myDat = JSON.parse(stored);
               else myDat = [];
-              var c = localStorage["count"];
               const reader = new FileReader();
 
               reader.readAsDataURL(file);
@@ -57,49 +66,31 @@ function AddBar() {
                     file: a,
                     fileName: file.name,
                   };
-                  const setData = async (c) => {
+                  const setData = async () => {
                     try {
                       localStorage.setItem(
                         "data",
                         JSON.stringify([...myDat, data])
                       );
-                      localStorage.setItem("count", Number(c) + 1);
                     } catch (error) {
                       alert("Local Storage Full " + error);
                     }
                   };
-                  setData(c).finally(() => {
-                    if (files.length < localStorage["count"]) {
-                      setIsLoading(false);
-                      window.location.reload(false);
-                    }
+                  setData().finally(() => {
+                    setCount(localStorage["count"]);
                   });
                 };
                 cImg();
               });
             } else {
-              alert("No Location Data Found in '" + file.name + "'.");
-              try {
-                localStorage.setItem("count", Number(c) + 1);
-                if (files.length < localStorage["count"]) {
-                  setIsLoading(false);
-                  window.location.reload(false);
-                }
-              } catch (err) {
-                console.log(err);
-              }
+              setCount(localStorage["count"]).then(() => {
+                alert("No Location Data Found in '" + file.name + "'.");
+              });
             }
           } else {
-            alert("No EXIF data found in image '" + file.name + "'.");
-            try {
-              localStorage.setItem("count", Number(c) + 1);
-              if (files.length < localStorage["count"]) {
-                setIsLoading(false);
-                window.location.reload(false);
-              }
-            } catch (err) {
-              console.log(err);
-            }
+            setCount(localStorage["count"]).then(() => {
+              alert("No EXIF data found in image '" + file.name + "'.");
+            });
           }
         });
       }

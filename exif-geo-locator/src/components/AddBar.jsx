@@ -55,19 +55,22 @@ function AddBar() {
                     file: a,
                     fileName: file.name,
                   };
-
-                  try {
-                    localStorage.setItem(
-                      "data",
-                      JSON.stringify([...myDat, data])
-                    );
+                  const setData = async () => {
+                    try {
+                      localStorage.setItem(
+                        "data",
+                        JSON.stringify([...myDat, data])
+                      );
+                    } catch (error) {
+                      alert("Local Storage Full " + error);
+                    }
+                  };
+                  setData().finally(() => {
                     if (files.length === i + 1) {
                       setIsLoading(false);
                       window.location.reload(false);
                     }
-                  } catch (error) {
-                    alert("Local Storage Full " + error);
-                  }
+                  });
                 };
                 cImg();
               });
